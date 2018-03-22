@@ -50,7 +50,6 @@ class CardMarketSpider(scrapy.Spider):
             '//*[@id="bupPaginator.innerNavBarCodeDiv"]/table/tbody/tr'
         ):
             title = result.css('.vAlignMiddle div a::text').extract_first()
-            import ipdb; ipdb.set_trace()
             foil = result.css('.centered').css('.nowrap span::attr(onmouseover)').extract_first() is not None
             pic_url, edition, rarity, language, condition = self.get_onmouseovers(result)
             price = result.css('.st_price div::text').extract_first()
