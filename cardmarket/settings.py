@@ -24,11 +24,12 @@ SPIDER_MIDDLEWARES = {
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
     'cardmarket.middlewares.RotateUserAgentMiddleware': 400,
+    'cardmarket.middlewares.TorProxyMiddleware': 410,
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
 }
 
-SPLASH_URL = 'http://0.0.0.0:8050'  # assumes that splash is up & running on this host/port
+SPLASH_URL = 'https://0.0.0.0:8050'  # assumes that splash is up & running on this host/port
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
